@@ -9,8 +9,6 @@ kubectl create namespace hadoop
 kubectl label namespace hadoop istio-injection=enabled
 #./istio.sh
 
-kubectl apply -f hadoop-configmaps.yaml
-
 helm upgrade --install -n hadoop hadoop -f ./helm-hadoop/values.yaml ./helm-hadoop
 #helm upgrade --install -n hadoop hadoop $(stable/hadoop/tools/calc_resources.sh 50) -f ./helm-hadoop/values.yaml ./helm-hadoop
 
