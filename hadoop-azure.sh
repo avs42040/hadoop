@@ -9,12 +9,14 @@ kubectl create namespace hadoop
 kubectl label namespace hadoop istio-injection=enabled
 #./istio.sh
 
-
+kubectl apply -f hadoop-configmaps.yaml
 
 helm upgrade --install -n hadoop hadoop -f ./helm-hadoop/values.yaml ./helm-hadoop
 #helm upgrade --install -n hadoop hadoop $(stable/hadoop/tools/calc_resources.sh 50) -f ./helm-hadoop/values.yaml ./helm-hadoop
 
 helm upgrade --install -n hadoop zeppelin --set hadoop.useConfigMap=true,hadoop.configMapName=hadoop-hadoop ./helm-zeppelin
+
+
 
 
 ## kubectl port-forward -n hadoop hadoop-hadoop-yarn-rm-0 8088:8088 --address 0.0.0.0
