@@ -155,6 +155,16 @@ data:
       </property>
       <!-- /Bind to all interfaces -->
 
+      <property>
+        <name>dfs.support.append</name>
+        <value>true</value>
+      </property>
+
+      <property>
+        <name>dfs.support.broken.append</name>
+        <value>true</value>
+      </property>
+
     </configuration>
 
   mapred-site.xml: |
