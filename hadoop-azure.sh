@@ -7,7 +7,12 @@ echo -e "\n############### Start k3d ################\n"
 ## Install istio
 kubectl create namespace hadoop
 kubectl label namespace hadoop istio-injection=enabled
-../cluster-config/istio.sh
+
+istioctl install -y
+kubectl apply -f ../cluster-config/istio-1.10.1/samples/addons
+kubectl apply -f ../cluster-config/istio-1.10.1/samples/addons
+echo "Wait for istio-addon to start 40 secs"
+sleep 40
 
 helm upgrade --install -n hadoop hadoop -f ./helm-hadoop/values.yaml ./helm-hadoop
 #helm upgrade --install -n hadoop hadoop $(stable/hadoop/tools/calc_resources.sh 50) -f ./helm-hadoop/values.yaml ./helm-hadoop
