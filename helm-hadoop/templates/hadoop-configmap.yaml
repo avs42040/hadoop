@@ -93,20 +93,20 @@ data:
     <?xml version="1.0"?>
     <?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
     <configuration>
-    
+
       <property>
         <name>fs.defaultFS</name>
         <value>hdfs://{{ include "hadoop.fullname" . }}-hdfs-nn:9000/</value>
         <description>NameNode URI</description>
       </property>
 
-      <!- The current user is all set to root ->
+      <!-- The current user is all set to root -->
       <property>
         <name>hadoop.http.staticuser.user</name>
         <value>root</value>
       </property>
       
-      <!- Do not enable permission check ->
+      <!-- Do not enable permission check -->
       <property>
         <name>dfs.permissions.enabled</name>
         <value>false</value>
